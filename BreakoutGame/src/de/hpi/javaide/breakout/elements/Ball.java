@@ -30,7 +30,7 @@ public class Ball extends Elliptic {
 		game.rectMode(PApplet.CENTER);
 		game.noStroke();
 		game.fill(getR(), getG(), getB());
-		game.sphere(10);
+		-> paint circle
 	}
 
 	public void move() {

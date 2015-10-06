@@ -22,7 +22,7 @@ public class Timer extends UIObject {
 
 	@Override
 	public void update(String input) {
-		System.out.println("Timer -> update " + input);
+
 		seconds--;
 
 	}

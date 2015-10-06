@@ -33,7 +33,6 @@ public class Wall implements Displayable, Iterable<Brick> {
 	 */
 	private void buildWall(Game game, int columns, int rows) {
 		wall = new ArrayList<Brick>();
-
 		for (int i = 0; i < columns; i++) {
 			for (int j = 0; j < rows; j++) {
 				Dimension b = new Dimension((int) (size.getWidth() /i),(int) ( size.getHeight()/j) );

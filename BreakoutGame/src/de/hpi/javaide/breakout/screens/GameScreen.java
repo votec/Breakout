@@ -73,6 +73,7 @@ public class GameScreen implements Screen {
 	public void update() {
 		if (currentBall != null) {
 			currentBall.move();
+			System.out.println("current ball " + currentBall.getX()  + " " + currentBall.getY());
 			try {
 				CollisionLogic.checkCollision(game, currentBall, paddle, wall);
 			} catch (EndOfGameException e) {
