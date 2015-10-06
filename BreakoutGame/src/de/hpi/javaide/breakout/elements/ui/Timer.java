@@ -22,7 +22,8 @@ public class Timer extends UIObject {
 
 	@Override
 	public void update(String input) {
-		// TODO Auto-generated method stub
+		System.out.println("Timer -> update " + input);
+		seconds--;
 
 	}
 }

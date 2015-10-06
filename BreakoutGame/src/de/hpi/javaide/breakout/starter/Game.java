@@ -8,7 +8,6 @@ import processing.core.PApplet;
 @SuppressWarnings("serial")
 public class Game extends PApplet implements GameConstants {
 
-	
 
 	// Setup the game
 	@Override

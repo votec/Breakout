@@ -1,53 +1,81 @@
 package de.hpi.javaide.breakout.elements;
 
+import java.awt.Point;
+import java.util.ArrayList;
+import java.util.List;
+
+import processing.core.PApplet;
 import de.hpi.javaide.breakout.Displayable;
 import de.hpi.javaide.breakout.Measureable;
 import de.hpi.javaide.breakout.starter.Game;
+import de.hpi.javaide.breakout.starter.GameConstants;
 
 public class BallDepot implements Displayable, Measureable {
 
+	private static final int BALLSIZE = GameConstants.LIVES;
+	private List<Ball> balls;
+	private Game game;
+
 	public BallDepot(Game game) {
-		// TODO Auto-generated constructor stub
+		this.game = game;
+		balls = new ArrayList<Ball>();
+		for (int i = 0; i < BALLSIZE; i++) {
+			balls.add(new Ball(game, new Point(0, 0)));
+		}
+	}
+
+	public void setStartPos(int x , int y){
+		if (isEmpty()) {
+			return;
+		}
+		balls.get(0).setPosition(x,y);
 	}
 
 	@Override
 	public int getX() {
-		// TODO Auto-generated method stub
-		return 0;
+		if (isEmpty()) {
+			return -1;
+		}
+		return balls.get(0).getX();
 	}
 
 	@Override
 	public int getY() {
-		// TODO Auto-generated method stub
-		return 0;
+		if (isEmpty()) {
+			return -1;
+		}
+		return balls.get(0).getY();
 	}
 
 	@Override
 	public int getWidth() {
-		// TODO Auto-generated method stub
-		return 0;
+		if (isEmpty()) {
+			return -1;
+		}
+		return balls.get(0).getWidth();
 	}
 
 	@Override
 	public int getHeight() {
-		// TODO Auto-generated method stub
-		return 0;
+		if (isEmpty()) {
+			return -1;
+		}
+		return balls.get(0).getHeight();
 	}
 
 	@Override
 	public void display() {
-		// TODO Auto-generated method stub
+//		game.text(balls.size(), x, y);
 
 	}
 
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		return balls.isEmpty();
 	}
 
 	public Ball dispense() {
-		// TODO Auto-generated method stub
-		return null;
+
+		return balls.remove(0);
 	}
 
 }

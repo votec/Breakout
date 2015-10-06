@@ -9,18 +9,21 @@ public class Info extends UIObject {
 	private String content;
 
 	public Info(Game game, String content) {
+
 		super(game);
+		this.content = content;
 	}
 
 	@Override
 	public void display() {
 	    game.textFont(Font.getFont32());
+//	    game.text(content, 0, 0);
 
 	}
 
 	@Override
 	public void update(String input) {
-		// TODO Auto-generated method stub
+		display();
 
 	}
 }

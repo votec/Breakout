@@ -8,6 +8,7 @@ import de.hpi.javaide.breakout.elements.Paddle;
 import de.hpi.javaide.breakout.elements.Wall;
 import de.hpi.javaide.breakout.elements.ui.Score;
 import de.hpi.javaide.breakout.elements.ui.Timer;
+import de.hpi.javaide.breakout.exceptions.EndOfGameException;
 import de.hpi.javaide.breakout.starter.Game;
 
 public class GameScreen implements Screen {
@@ -72,7 +73,19 @@ public class GameScreen implements Screen {
 	public void update() {
 		if (currentBall != null) {
 			currentBall.move();
-			CollisionLogic.checkCollision(game, currentBall, paddle, wall);
+			try {
+				CollisionLogic.checkCollision(game, currentBall, paddle, wall);
+			} catch (EndOfGameException e) {
+				if (e.equals(EndOfGameException.BALLOUT)) {
+					if (ballDepot.isEmpty()) {
+						// goto end screen
+						ScreenManager.setScreen(game, Screen.END);
+					}else {
+						currentBall = ballDepot.dispense();
+					}
+
+				}
+			}
 		}
 		timer.update(null);
 	}
