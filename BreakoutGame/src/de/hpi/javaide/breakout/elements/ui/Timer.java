@@ -19,4 +19,10 @@ public class Timer extends UIObject {
 		game.textFont(Font.getFont16());
 		game.text("Time left: " + seconds, game.width-150, game.height-80);
 	}
+
+	@Override
+	public void update(String input) {
+		// TODO Auto-generated method stub
+
+	}
 }

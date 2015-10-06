@@ -7,7 +7,7 @@ import de.hpi.javaide.breakout.starter.Game;
 public class Info extends UIObject {
 
 	private String content;
-	
+
 	public Info(Game game, String content) {
 		super(game);
 	}
@@ -15,6 +15,12 @@ public class Info extends UIObject {
 	@Override
 	public void display() {
 	    game.textFont(Font.getFont32());
+
+	}
+
+	@Override
+	public void update(String input) {
+		// TODO Auto-generated method stub
 
 	}
 }

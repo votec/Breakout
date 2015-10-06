@@ -31,15 +31,15 @@ public class GameScreen implements Screen {
 	}
 
 	/**
-	 * GameScreen implements a "Lazy Instantiation" of the Singleton Design Patterns (Gang of Four) 
+	 * GameScreen implements a "Lazy Instantiation" of the Singleton Design Patterns (Gang of Four)
 	 * This approach is not "Thread safe", but is sufficient for our current needs.
 	 *
 	 * Please, be aware that Singletons need to be handled with care.
 	 * There are various ways to implement them, all have there pros and cons.
-	 * In his book, Effective Java, Joshua Bloch recommends to create Singletons using an enum, 
+	 * In his book, Effective Java, Joshua Bloch recommends to create Singletons using an enum,
 	 * which is a language concept that we have not discussed here so far.
-	 * For those of you who want to go further we suggest to follow this recommendation at some point of time. 
-	 * 
+	 * For those of you who want to go further we suggest to follow this recommendation at some point of time.
+	 *
 	 * @return the EndScreen
 	 */
 	public static Screen getInstance(Game game) {
@@ -52,9 +52,9 @@ public class GameScreen implements Screen {
 	}
 
 	/*
-	 * Hint for the following error messages: 
+	 * Hint for the following error messages:
 	 * rather consider to create the necessary constructors than to remove the arguments.
-	 * 
+	 *
 	 * (non-Javadoc)
 	 * @see de.hpi.javaide.breakout.Initializable#init()
 	 */

@@ -7,8 +7,20 @@ import de.hpi.javaide.breakout.starter.Game;
 public class Score extends UIObject {
 
 	private int score;
-	
+
 	public Score(Game game) {
-		super(game);	
+		super(game);
+	}
+
+	@Override
+	public void display() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void update(String input) {
+		// TODO Auto-generated method stub
+
 	}
 }

@@ -11,6 +11,9 @@ public class Wall implements Displayable, Iterable<Brick> {
 	private ArrayList<Brick> wall;
 
 
+	public Wall(Game game, int i, int j) {
+		// TODO Auto-generated constructor stub
+	}
 	@Override
 	public Iterator<Brick> iterator() {
 		return wall.iterator();
@@ -18,12 +21,17 @@ public class Wall implements Displayable, Iterable<Brick> {
 	/**
 	 * Build the wall by putting the single bricks into their position
 	 * Hint: You might want to use one or two for-loops
-	 * 
+	 *
 	 * @param game
 	 * @param columns
 	 * @param rows
 	 */
 	private void buildWall(Game game, int columns, int rows) {
+
+	}
+	@Override
+	public void display() {
+		// TODO Auto-generated method stub
 
 	}
 }
