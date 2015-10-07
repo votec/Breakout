@@ -14,13 +14,15 @@ public class Score extends UIObject {
 
 	@Override
 	public void display() {
-		// TODO Auto-generated method stub
+		game.fill(255);
+		game.textFont(Font.getFont16());
+		game.text("Score: " + score, game.width-150, game.height-150);
 
 	}
 
 	@Override
 	public void update(String input) {
-		update(input);
+		score += Integer.parseInt(input);
 
 	}
 }

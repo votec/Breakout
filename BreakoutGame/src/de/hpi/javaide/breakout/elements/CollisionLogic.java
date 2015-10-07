@@ -1,6 +1,7 @@
 package de.hpi.javaide.breakout.elements;
 
 import de.hpi.javaide.breakout.exceptions.EndOfGameException;
+import de.hpi.javaide.breakout.screens.ScreenManager;
 import de.hpi.javaide.breakout.starter.Game;
 
 public class CollisionLogic {
@@ -31,47 +32,53 @@ public class CollisionLogic {
 	}
 
 	private static void checkWallCollision(Ball ball, Wall wall) {
-
+		int count = 0;
 		for (Brick brick : wall) {
-			if (ball.getY() == brick.getY()) {
-				brick.removeHealth();
+			if (brick.getHealth() > 0 ) {
+			
+			if (ball.getY() <= (brick.getY() + brick.getHeight()/2)) {
+
+				if (ball.getX() > (brick.getX()  - brick.getWidth()/2) ) {
+					if (ball.getX() < (brick.getX() + brick.getWidth()/2) ) {
+						
+						ScreenManager.getCurrentScreen().increaseScore(50);
+						brick.removeHealth();
+//						System.out.println("brick " + count + " pos: " + brick.getX() + "  " + brick.getY() + " , " + brick.getHealth());
+						ball.bounce();
+						break;
+					}	
+				}
 			}
-			/**
-			 * Move ball in other direction
-			 */
+			count++;
+			}
 		}
 	}
-
 	private static void checkPaddleCollision(Ball ball, Paddle paddle) {
-		if (paddle.getY() == ball.getY()) {
-			System.out.println("Hit Paddle! ");
-			// move ball in other direction
-
+		if (paddle.getY() - paddle.getHeight()/2  == ball.getY()) {
+			if (ball.getX() > (paddle.getX() - paddle.getWidth()/2) ) {
+				
+				if (ball.getX() < (paddle.getX() + paddle.getWidth()/2) ) {
+					ball.bouncePaddle();
+				}			
+			}
 		}
-
 	}
 
 	private static void checkScreenCollision(Game game, Ball ball) throws EndOfGameException{
+		
 		if (ball.getY() < 0 ) {
+			ball.bounce();
+		}
+		if (ball.getY() >= game.displayHeight -90) {
 			System.out.println("Get out from screen -> Out!");
-			throw new EndOfGameException(EndOfGameException.BALLOUT,"no hit -> to slow ? ");
+			throw new EndOfGameException(EndOfGameException.BALLOUT);
 		}
-
-		if (ball.getY() > game.displayHeight) {
-			System.out.println("top -> no brick ? -> go down");
-		}
-
 		if (ball.getX() <  0 ) {
-
-			System.out.println("left side -> move to right");
+			ball.bounceRight();
 		}
-
 		if (ball.getX() > game.displayWidth ) {
-
-			System.out.println("right side -> move to left");
-
+			ball.bounceLeft();
 		}
-
 	}
 
 }

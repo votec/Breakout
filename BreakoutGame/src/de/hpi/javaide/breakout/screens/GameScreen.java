@@ -76,18 +76,22 @@ public class GameScreen implements Screen {
 			try {
 				CollisionLogic.checkCollision(game, currentBall, paddle, wall);
 			} catch (EndOfGameException e) {
-				if (e.equals(EndOfGameException.BALLOUT)) {
+				if (e.getMessage().equals(EndOfGameException.BALLOUT)) {
 					if (ballDepot.isEmpty()) {
 						// goto end screen
 						ScreenManager.setScreen(game, Screen.END);
 					}else {
-						currentBall = ballDepot.dispense();
+						currentBall = null;
 					}
 
 				}
 			}
 		}
 		timer.update(null);
+		if (((Timer) timer).getTime() == 0) {
+			increaseScore(-1000);
+		}
+		
 	}
 
 	@Override
@@ -98,7 +102,7 @@ public class GameScreen implements Screen {
 		} else {
 			// there is no more Ball in the game and the depot is empty.
 			if (ballDepot.isEmpty()) {
-				System.out.println("Set End Screen!");
+				
 				ScreenManager.setScreen(game, Screen.END);
 				return;
 			}

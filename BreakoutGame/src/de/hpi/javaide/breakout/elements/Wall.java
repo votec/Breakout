@@ -43,9 +43,8 @@ public class Wall implements Displayable, Iterable<Brick> {
 		Dimension b = new Dimension((int) (size.getWidth() /columns),(int) ( size.getHeight()/rows) );
 		for (int i = 0; i < columns; i++) {
 			for (int j = 0; j < rows; j++) {	
-				int posX = 1 + (int)(i* b.getWidth());
-				int posY = 1 +(int) (j* b.getHeight());
-				System.out.println(posX + " " + posY);
+				int posX = (int) (b.getWidth()/2 + (int)(i* b.getWidth()));
+				int posY = (int) (b.getHeight()/2 +(int) (j* b.getHeight()));
 				wall.add(new Brick(game,new Point( posX , posY), b));
 			}
 		}

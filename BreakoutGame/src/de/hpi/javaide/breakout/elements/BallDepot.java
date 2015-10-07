@@ -22,7 +22,7 @@ public class BallDepot implements Displayable, Measureable {
 		this.game = game;
 		balls = new ArrayList<Ball>();
 		for (int i = 0; i < BALLSIZE; i++) {
-			Ball b = new Ball(game, new Point(GameConstants.STARTPOSITION.x, GameConstants.STARTPOSITION.y));
+			Ball b = new Ball(game, new Point(game.displayWidth/2, game.displayHeight -120));
 			b.setColor(100, 20, 200);
 			balls.add(b);
 		}

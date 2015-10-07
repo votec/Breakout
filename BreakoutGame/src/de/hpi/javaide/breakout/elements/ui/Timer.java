@@ -8,6 +8,9 @@ public class Timer extends UIObject {
 
 	private int seconds;
 	private int frames;
+	
+	private int time = 100;
+	
 
 	public Timer(Game game) {
 		super(game);
@@ -18,13 +21,18 @@ public class Timer extends UIObject {
 	public void display() {
 		game.fill(255);
 		game.textFont(Font.getFont16());
-		game.text("Time left: " + seconds, game.width-150, game.height-80);
+		int erg = time - seconds;
+		game.text("Time left: " + erg, game.width-150, game.height-80);
 	}
 
 	@Override
 	public void update(String input) {
 		frames++;
 		seconds  = frames / 30 ;
-
+		
+	}
+	public int getTime() {
+		return time;
+		
 	}
 }

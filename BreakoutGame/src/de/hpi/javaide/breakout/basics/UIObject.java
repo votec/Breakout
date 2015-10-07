@@ -12,4 +12,6 @@ public abstract class UIObject implements Displayable {
 	}
 
 	public abstract void update(String input);
+
+
 }
