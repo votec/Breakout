@@ -5,12 +5,14 @@ import java.awt.Point;
 
 import de.hpi.javaide.breakout.basics.Rectangular;
 import de.hpi.javaide.breakout.starter.Game;
+import de.hpi.javaide.breakout.starter.GameConstants;
 import processing.core.PApplet;
 
 public class Paddle extends Rectangular {
 	public Paddle(Game game) {
-		super(game, new Point(game.displayWidth / 2, game.displayHeight - 100), new Dimension(100, 20));
-		setColor(150, 150, 150);
+		super(game, new Point(game.displayWidth / 2, game.displayHeight -100), new Dimension(100, 20));
+		setColor(12, 222, 300);
+		
 	}
 
 	@Override

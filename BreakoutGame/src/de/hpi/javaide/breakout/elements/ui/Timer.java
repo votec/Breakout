@@ -7,10 +7,11 @@ import de.hpi.javaide.breakout.starter.Game;
 public class Timer extends UIObject {
 
 	private int seconds;
+	private int frames;
 
 	public Timer(Game game) {
 		super(game);
-		seconds = 60;
+		seconds = 0;
 	}
 
 	@Override
@@ -22,8 +23,8 @@ public class Timer extends UIObject {
 
 	@Override
 	public void update(String input) {
-
-		seconds--;
+		frames++;
+		seconds  = frames / 30 ;
 
 	}
 }

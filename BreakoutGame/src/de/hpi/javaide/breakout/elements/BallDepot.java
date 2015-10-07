@@ -7,6 +7,8 @@ import java.util.List;
 import processing.core.PApplet;
 import de.hpi.javaide.breakout.Displayable;
 import de.hpi.javaide.breakout.Measureable;
+import de.hpi.javaide.breakout.basics.Font;
+import de.hpi.javaide.breakout.screens.GameScreen;
 import de.hpi.javaide.breakout.starter.Game;
 import de.hpi.javaide.breakout.starter.GameConstants;
 
@@ -20,7 +22,7 @@ public class BallDepot implements Displayable, Measureable {
 		this.game = game;
 		balls = new ArrayList<Ball>();
 		for (int i = 0; i < BALLSIZE; i++) {
-			Ball b = new Ball(game, new Point(0, 0));
+			Ball b = new Ball(game, new Point(GameConstants.STARTPOSITION.x, GameConstants.STARTPOSITION.y));
 			b.setColor(100, 20, 200);
 			balls.add(b);
 		}
@@ -67,7 +69,9 @@ public class BallDepot implements Displayable, Measureable {
 
 	@Override
 	public void display() {
-//		game.text(balls.size(), x, y);
+		game.fill(255);
+		game.textFont(Font.getFont16());
+		game.text("Balls: " + balls.size(), game.width-150, game.height-100);
 
 	}
 
@@ -76,7 +80,9 @@ public class BallDepot implements Displayable, Measureable {
 	}
 
 	public Ball dispense() {
-
+		if (isEmpty()) {
+			return null;
+		}
 		return balls.remove(0);
 	}
 

@@ -10,7 +10,7 @@ import de.hpi.javaide.breakout.starter.Game;
 
 public class Ball extends Elliptic {
 
-	private static int STEP_Y = 1;
+	private static int STEP_Y = -1;
 	public static void setSTEP_Y(int sTEP_Y) {
 		STEP_Y = sTEP_Y;
 	}
@@ -19,7 +19,7 @@ public class Ball extends Elliptic {
 		STEP_X = sTEP_X;
 	}
 
-	private static int STEP_X = 1;
+	private static int STEP_X = -1;
 
 	public Ball(Game game, Point position) {
 		super(game, position, new Dimension(10, 10));
@@ -30,7 +30,9 @@ public class Ball extends Elliptic {
 		game.rectMode(PApplet.CENTER);
 		game.noStroke();
 		game.fill(getR(), getG(), getB());
-		-> paint circle
+		game.rect(getX(), getY(), getWidth(), getHeight());
+		
+		
 	}
 
 	public void move() {

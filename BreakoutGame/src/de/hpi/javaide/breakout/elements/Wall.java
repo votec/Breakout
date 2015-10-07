@@ -9,15 +9,23 @@ import java.util.List;
 import de.hpi.javaide.breakout.Displayable;
 import de.hpi.javaide.breakout.starter.Game;
 import de.hpi.javaide.breakout.starter.GameConstants;
+import processing.core.PApplet;
 
 public class Wall implements Displayable, Iterable<Brick> {
 
 	private List<Brick> wall;
-	private Dimension size = new Dimension(GameConstants.SCREEN_X, GameConstants.SCREEN_Y / 3);
+	
+	private Game game;
+
+	private Dimension size;
 
 
 	public Wall(Game game, int i, int j) {
+		this.game = game;
+		wall = new ArrayList<Brick>();
+		size = new Dimension(game.displayWidth, game.displayHeight / 3);
 		buildWall(game, i, j);
+		
 	}
 	@Override
 	public Iterator<Brick> iterator() {
@@ -32,11 +40,13 @@ public class Wall implements Displayable, Iterable<Brick> {
 	 * @param rows
 	 */
 	private void buildWall(Game game, int columns, int rows) {
-		wall = new ArrayList<Brick>();
+		Dimension b = new Dimension((int) (size.getWidth() /columns),(int) ( size.getHeight()/rows) );
 		for (int i = 0; i < columns; i++) {
-			for (int j = 0; j < rows; j++) {
-				Dimension b = new Dimension((int) (size.getWidth() /i),(int) ( size.getHeight()/j) );
-				wall.add(new Brick(game, new Point(1 + (int)(i* b.getWidth()), 1 +(int) (j*b.getHeight())), b));
+			for (int j = 0; j < rows; j++) {	
+				int posX = 1 + (int)(i* b.getWidth());
+				int posY = 1 +(int) (j* b.getHeight());
+				System.out.println(posX + " " + posY);
+				wall.add(new Brick(game,new Point( posX , posY), b));
 			}
 		}
 	}

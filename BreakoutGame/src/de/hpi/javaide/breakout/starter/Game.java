@@ -12,7 +12,7 @@ public class Game extends PApplet implements GameConstants {
 	// Setup the game
 	@Override
 	public void setup() {
-		size(SCREEN_X, SCREEN_Y);
+		size(displayWidth, displayHeight);
 		background(0);
 		frameRate(30);
 		Font.init(this);
