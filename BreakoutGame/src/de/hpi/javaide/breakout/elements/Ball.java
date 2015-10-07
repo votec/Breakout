@@ -31,7 +31,7 @@ public class Ball extends Elliptic {
 		game.rectMode(PApplet.CENTER);
 		game.noStroke();
 		game.fill(getR(), getG(), getB());
-		game.rect(getX(), getY(), getWidth(), getHeight());
+		game.ellipse(getX(), getY(), getWidth(), getHeight());
 		
 	}
 
